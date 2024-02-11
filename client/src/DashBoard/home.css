@@ -1,0 +1,323 @@
+.Health-Dashboard{
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    background-color: #fff;
+    color: #333;
+
+}
+.Hospital-Dashboard{
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    background-color: #fff;
+    color: #333;
+    height:100vh;
+}
+.Profile-Dashboard{
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    background-color: #fff;
+    color: #333;
+
+}
+#navbar {
+    width: 10%;
+    height: 100%;
+    padding: 20px;
+    color: black
+}
+.menu-logo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+.gg-menu-left {
+    transform: scale(var(--ggs,1));
+    margin-right: 10px; /* Adjust as needed */
+    margin-top: -30px;
+
+}
+.gg-menu-left,
+.gg-menu-left::after,
+.gg-menu-left::before {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    width: 20px;
+    height: 2px;
+    border-radius: 3px;
+    background: currentColor
+}
+.gg-menu-left::after,
+.gg-menu-left::before {
+    content: "";
+    position: absolute;
+    top: -6px;
+
+    width: 10px
+}
+.gg-menu-left::after {
+    top: 6px;
+    width: 14px
+}
+
+.nav-card {
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.nav-card h2 {
+    font-size: 28px;
+    margin: 0;
+    margin-bottom:30px ;
+    /* text-align: center; */
+}
+
+.nav-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    
+
+}
+.nav-card li{
+    margin-bottom:30px ;
+}
+.nav-card li :hover{
+    background-color: #F4F9FB;
+
+
+}
+
+
+ul {
+    list-style-type: none;
+
+}
+a {
+    text-decoration: none;
+    text-decoration-style: none;
+    color: black
+}
+#main {
+    width: 60%;
+    padding: 20px;
+}
+#right {
+    width: 30%;
+    padding: 20px;
+}
+.card {
+    background-color: #F4F9FB;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 5px;
+}
+.small-card {
+    display: inline-block;
+    width: 30%;
+    background-color: #FFFFFF;
+    border: 2px solid #fff;
+    border-radius: 15px;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+}
+.small-card img {
+    width: 50px;
+    height: 50px;
+}
+.small-card span {
+    display: block;
+    font-size: 20px;
+}
+
+.graph {
+
+    background-color: #FFFFFF;
+    margin-bottom: 20px;
+    margin-left: -20px;
+    padding: 5px;
+    border-radius: 5px;
+
+}
+.graph-internal {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    size: 60%;
+
+}
+.graph-img{
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+
+}
+
+/* .graph{
+    display: grid;
+    grid-template-columns: auto auto;
+
+}
+*/
+
+
+#sleep-bar {
+    width: 80%;
+    height: 20px;
+    background-color: #555;
+    border: 2px solid #fff;
+    margin: 10px auto;
+}
+#sleep-progress {
+    height: 20px;
+    background-color: #0f0;
+    width: 0;
+}
+#sleep-percentage {
+    font-size: 20px;
+    margin-left: 10px;
+}
+#profile-info {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+}
+#profile-info img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+#profile-info p {
+    font-size: 20px;
+}
+#profile-stats {
+    margin: 10px;
+}
+#profile-stats p {
+    font-size: 20px;
+}
+.iframe-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* Aspect ratio of 16:9 */
+    height: 0;
+    overflow: hidden;
+}
+
+.iframe-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+#upcoming-list {
+    list-style: none;
+    padding: 0;
+    margin: 10px;
+}
+#upcoming-list li {
+    background-color: #444;
+    border: 2px solid #fff;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+#upcoming-list li span {
+    display: block;
+    font-size: 20px;
+}
+.session {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.session img {
+    width: 100px;
+    height: 100px;
+}
+.session p {
+    font-size: 20px;
+}
+
+
+/*Call Button*/
+.fixed-tel {
+    position: relative;
+    top:-17px;
+  
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    z-index: 9999;
+    text-align: center;
+  }
+  
+  .fixed-tel:before {
+    content: "";
+    width: 50px;
+    height: 50px;
+    background-color: #ff5f13;
+    position: absolute;
+    border-radius: 100%;
+    box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, .12), 0 1px 1px 0 rgba(0, 0, 0, .24);
+    top: 0;
+    left: 0;
+
+  
+ 
+    background:  url(https://i.imgur.com/J9AXAq7.png) no-repeat center center;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    border: 2px solid transparent;
+    opacity: .7;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    -webkit-transform-origin: 50% 50%;
+    -moz-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    -o-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    background-color: #FF992C;
+    background-size: 70%;
+  -webkit-animation: pulse 01s infinite;
+  }
+  
+  .fixed-tel i {
+    vertical-align: middle;
+    z-index: 2;
+    position: relative;
+    color: #030f27;
+    font-size: 1.5rem;
+  }
+  .hospital-card-list{
+    display: inline-block;
+    width: 100%;
+    background-color: #FFFFFF;
+    border: 2px solid #fff;
+    border-radius: 15px;
+    margin: 10px;
+    padding: 10px;
+
+}
+.hospital-card-list span{
+    margin:30px;
+}
+ 
+
