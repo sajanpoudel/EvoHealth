@@ -2,6 +2,8 @@
 
 EvoHealth marks a new era in healthcare, driven by a vision centered around the limitless potential of artificial intelligence and a dedication to empowering individuals in the field. Acknowledging the revolutionary potential of artificial intelligence, we embarked on a mission to leverage its unmatched capacity to interpret enormous volumes of data and derive significant understandings. Our goal became evident: to give people extraordinary access to their personal health records in order to transform the healthcare system.
 
+Live Website: https://evohealth.netlify.com/ 
+
 ## Installation
 
 To get started with EvoHealth, follow these simple steps:
