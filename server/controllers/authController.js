@@ -1,6 +1,7 @@
 import authModel from "../models/authModel.js";
 import bcryptjs from "bcryptjs";
 import jwt from "jsonwebtoken";
+import { getJwtSecret } from "../config/jwt.js";
 
 class AuthController {
   static userRegistration = async (req, res) => {
@@ -56,7 +57,7 @@ class AuthController {
             // return res.status(200).json({message: "Login Successful"})
 
             //Generate token for protected link access
-            const token = jwt.sign({ userID: isEmail._id }, "pleaseSubscribe", {
+            const token = jwt.sign({ userID: isEmail._id }, getJwtSecret(), {
               expiresIn: "2d",
             });
 
