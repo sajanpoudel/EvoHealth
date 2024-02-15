@@ -29,7 +29,7 @@ class AuthController {
               .status(200)
               .json({ message: "User Registration successfully" });
           } else {
-            return res.send(400).json({ message: "User Not Registered" });
+            return res.status(400).json({ message: "User Not Registered" });
           }
         } else {
           return res.status(400).json({ message: "EMail already exixst." });
@@ -74,7 +74,7 @@ class AuthController {
         }
       } else {
         return res
-          .status(200)
+          .status(400)
           .json({ message: "Both field are required for login" });
       }
     } catch (error) {
