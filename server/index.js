@@ -1,25 +1,26 @@
 import express  from 'express';
-import axios from 'axios';
 import dotenv from 'dotenv';
 import { google } from 'googleapis';
 import { OAuth2Client } from 'google-auth-library';
-import { configDotenv } from 'dotenv';
 import connectToMongo from './config/db.js';
 import cors from "cors"
 
 import router from './routes/router.js';
 
 const app = express();
-const port = 5000;
 dotenv.config();
-connectToMongo();
+const port = process.env.PORT || 5000;
+connectToMongo().catch((error) => {
+  console.error('Could not connect to MongoDB:', error.message);
+  process.exit(1);
+});
 
-// Replace 'YOUR_CLIENT_ID' and 'YOUR_CLIENT_SECRET' with your actual credentials obtained from Google Cloud Console.
 const SCOPES = ['https://www.googleapis.com/auth/fitness.activity.read'];
 
-const CLIENT_ID = '46994919186-0su2f9i2v6q74h2onu1ftmm65rg78gq4.apps.googleusercontent.com';
-const CLIENT_SECRET = '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';
-const REDIRECT_URI = 'http://localhost:3000/oauth2callback';
+// Credentials come from Google Cloud Console and are read from server/.env
+const CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
+const CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
+const REDIRECT_URI = process.env.GOOGLE_REDIRECT_URI || 'http://localhost:3000/oauth2callback';
 
 
 // Create an OAuth 2.0 client with the given credentials
@@ -38,7 +39,7 @@ app.get('/', (req, res) => {
   // });
 
   // res.redirect(authUrl);
-  res.send("API WOrking")
+  res.send("API working")
 });
 
 // app.get('/oauth2callback', async (req, res) => {
