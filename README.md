@@ -46,3 +46,24 @@ Looking ahead, our focus is on advancing EvoHealth through three key avenues. Fi
 
 ## Demo Video
 https://youtu.be/9j1b7GndjDQ 
+
+## Running locally
+
+Server:
+
+```
+cd server
+npm install
+cp .env.example .env     # fill in JWT_SECRET, MONGO_URI and the Google credentials
+npm start
+```
+
+The API listens on port 5000 and mounts its routes under `/api/v1/`. Registration and login use bcrypt hashed passwords and JWT tokens that expire after two days.
+
+Client:
+
+```
+cd client
+npm install
+npm start
+```
