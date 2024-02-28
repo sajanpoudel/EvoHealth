@@ -26,4 +26,10 @@ describe("userRegistration", () => {
     assert.equal(res.statusCode, 400)
     assert.equal(res.body.message, "No username.")
   })
+
+  it("asks for an email", async () => {
+    const res = fakeResponse()
+    await AuthController.userRegistration({ body: { username: "ada", password: "pw" } }, res)
+    assert.equal(res.body.message, "No email.")
+  })
 })
