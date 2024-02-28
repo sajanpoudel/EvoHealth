@@ -1,7 +1,7 @@
 import "../home.css"; // Assuming that the CSS is in home.css in the same folder
 import React, { useState } from "react";
 import "../home.css";
-import "../Upload/form.css"
+import "../Upload/form.css";
 import NavBar from "../components/navbar";
 import RightProfileBar from "../components/RightProfileBar";
 import axios from "axios";
@@ -21,16 +21,15 @@ const Profile = () => {
     expiryDate: "",
 
     profile: "",
- 
   });
   const [numPages, setNumPages] = useState(null);
 
   const [token, setToken] = useState("");
 
-  const [file, setFile] = useState(null)
+  const [file, setFile] = useState(null);
 
   const history = useHistory();
- 
+
   useEffect(() => {
     // Retrieve token from localStorage
     const storedToken = localStorage.getItem("token");
@@ -66,7 +65,6 @@ const Profile = () => {
       formDataWithFile.append("policyNumber", formData.policyNumber);
       formDataWithFile.append("expiryDate", formData.expiryDate);
 
-
       formDataWithFile.append("profile", file);
 
       const res = await axios.post(
@@ -99,20 +97,13 @@ const Profile = () => {
       <div id="main">
         <div id="greeting" className="card">
           <h2>Profile Page</h2>
-          <p id="greeting-message">
-            Provide your accurate profile information
-          </p>
+          <p id="greeting-message">Provide your accurate profile information</p>
         </div>
         <div className="form-field">
           <form onSubmit={handleSubmit} className="form">
-          <label>
+            <label>
               Profile Photo
-              <input
-                type="file"
-                accept=".jpg"
-                onChange={handleFileChange}
-                className="input"
-              />
+              <input type="file" accept=".jpg" onChange={handleFileChange} className="input" />
             </label>
             <label>
               Full Name
@@ -159,7 +150,6 @@ const Profile = () => {
                 className="input"
               />
             </label>
-     
 
             <label>
               Height
@@ -218,12 +208,8 @@ const Profile = () => {
                 className="input"
               />
             </label>
-     
-            <button
-              type="submit"
-              onClick={handleSubmit}
-              className="submit-button"
-            >
+
+            <button type="submit" onClick={handleSubmit} className="submit-button">
               Update User Profile
             </button>
           </form>
