@@ -23,10 +23,10 @@ const Upload = () => {
 
   const [token, setToken] = useState("");
 
-  const [file, setFile] = useState(null)
+  const [file, setFile] = useState(null);
 
   const history = useHistory();
- 
+
   useEffect(() => {
     // Retrieve token from localStorage
     const storedToken = localStorage.getItem("token");
@@ -92,8 +92,8 @@ const Upload = () => {
         <div id="greeting" className="card">
           <h2>Upload your Health thumbnails Provided By Hospitals</h2>
           <p id="greeting-message">
-            Provide all the accurate data provided by Hospitals. We recommend
-            doctors to upload their patients data through the portal.
+            Provide all the accurate data provided by Hospitals. We recommend doctors to upload
+            their patients data through the portal.
           </p>
         </div>
         <div className="form-field">
@@ -166,12 +166,7 @@ const Upload = () => {
             </label>
             <label>
               Patient thumbnail (PDF)
-              <input
-                type="file"
-                accept=".pdf"
-                onChange={handleFileChange}
-                className="input"
-              />
+              <input type="file" accept=".pdf" onChange={handleFileChange} className="input" />
             </label>
             <label>
               Doctor Comment
@@ -183,11 +178,7 @@ const Upload = () => {
                 className="input"
               />
             </label>
-            <button
-              type="submit"
-              onClick={handleSubmit}
-              className="submit-button"
-            >
+            <button type="submit" onClick={handleSubmit} className="submit-button">
               Add Patient thumbnail
             </button>
           </form>
