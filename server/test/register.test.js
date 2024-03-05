@@ -38,4 +38,11 @@ describe("userRegistration", () => {
     await AuthController.userRegistration({ body: { username: "ada", email: "a@b.c" } }, res)
     assert.equal(res.body.message, "No password.")
   })
+
+  it("registers a new user", async () => {
+    const res = fakeResponse()
+    await AuthController.userRegistration({ body: { username: "ada", email: "ada@x.io", password: "pw" } }, res)
+    assert.equal(res.statusCode, 200)
+    assert.equal(users.length, 1)
+  })
 })
