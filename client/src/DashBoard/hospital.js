@@ -19,14 +19,11 @@ function Hospital() {
         }
 
         // Make GET request to backend API
-        const response = await axios.get(
-          "https://evohealth.onrender.com/api/v1/get/alldata",
-          {
-            headers: {
-              Authorization: `Bearer ${storedToken}`, // Use stored token directly
-            },
-          }
-        );
+        const response = await axios.get("https://evohealth.onrender.com/api/v1/get/alldata", {
+          headers: {
+            Authorization: `Bearer ${storedToken}`, // Use stored token directly
+          },
+        });
 
         // Set data state with the response data
         setData(response.data);
@@ -46,8 +43,7 @@ function Hospital() {
         <div id="greeting" className="card">
           <h2>Your All Health Reports</h2>
           <p id="greeting-message">
-            This is the collection of all your health reports from different
-            hospitals.
+            This is the collection of all your health reports from different hospitals.
           </p>
         </div>
         <div id="cards" className="card">
@@ -55,29 +51,29 @@ function Hospital() {
           {data ? (
             <div>
               {data.map((report, index) => (
-            <div className="hospital-card-list">
-                <div key={index}>
-                  <span id="date" name="date">
-                    {report.date}
-                  </span>
-                  <span id="hospital-name" name="hospital-name">
-                    {report.hospitalName}
-                  </span>
-                  <span id="doctor-name" name="doctor-name">
-                    {report.doctorName}
-                  </span>
-                  <span id="report-view" name="report-view">
-                    View Report
-                  </span>
-                  <span id="call-now" name="call-now">
-                    <a
-                      className="fixed-tel"
-                      href={`tel:${report.contactNumber}`}
-                      target="_blank"
-                      title="Call Now"
-                    ></a>
-                  </span>
-                </div>
+                <div className="hospital-card-list">
+                  <div key={index}>
+                    <span id="date" name="date">
+                      {report.date}
+                    </span>
+                    <span id="hospital-name" name="hospital-name">
+                      {report.hospitalName}
+                    </span>
+                    <span id="doctor-name" name="doctor-name">
+                      {report.doctorName}
+                    </span>
+                    <span id="report-view" name="report-view">
+                      View Report
+                    </span>
+                    <span id="call-now" name="call-now">
+                      <a
+                        className="fixed-tel"
+                        href={`tel:${report.contactNumber}`}
+                        target="_blank"
+                        title="Call Now"
+                      ></a>
+                    </span>
+                  </div>
                 </div>
               ))}
             </div>
