@@ -9,7 +9,7 @@
   font-weight: 600;
   line-height: 28px;
 }
-@media(max-width: 767px) {
+@media (max-width: 767px) {
   .feature-card-feature-card {
     flex-direction: row;
   }
@@ -17,7 +17,7 @@
     flex-direction: column;
   }
 }
-@media(max-width: 479px) {
+@media (max-width: 479px) {
   .feature-card-container {
     flex-direction: column;
   }
