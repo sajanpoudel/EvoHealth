@@ -1,8 +1,8 @@
-import React from 'react'
+import React from "react";
 
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
 
-import './feature-card.css'
+import "./feature-card.css";
 
 const FeatureCard = (props) => {
   return (
@@ -15,18 +15,18 @@ const FeatureCard = (props) => {
         <span className="bodySmall">{props.subHeading}</span>
       </div>
     </div>
-  )
-}
+  );
+};
 
 FeatureCard.defaultProps = {
-  heading: 'Lorem ipsum',
+  heading: "Lorem ipsum",
   subHeading:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lorem lorem, malesuada in metus vitae, scelerisque accumsan ipsum.',
-}
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lorem lorem, malesuada in metus vitae, scelerisque accumsan ipsum.",
+};
 
 FeatureCard.propTypes = {
   heading: PropTypes.string,
   subHeading: PropTypes.string,
-}
+};
 
-export default FeatureCard
+export default FeatureCard;
