@@ -51,4 +51,12 @@ describe("userRegistration", () => {
     assert.notEqual(users[0].password, "secret")
     assert.ok(await bcryptjs.compare("secret", users[0].password))
   })
+
+  it("refuses an email that is already registered", async () => {
+    await register("ada@x.io", "pw")
+    const res = fakeResponse()
+    await AuthController.userRegistration({ body: { username: "ada", email: "ada@x.io", password: "pw" } }, res)
+    assert.equal(res.statusCode, 400)
+    assert.equal(users.length, 1)
+  })
 })
