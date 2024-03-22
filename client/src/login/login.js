@@ -31,10 +31,7 @@ function Login() {
     // Add your login logic here
 
     try {
-      const res = await axios.post(
-        "https://evohealth.onrender.com/api/v1/user/login",
-        logininput
-      );
+      const res = await axios.post("https://evohealth.onrender.com/api/v1/user/login", logininput);
       alert(res.data.message);
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("username", res.data.name);
@@ -50,10 +47,7 @@ function Login() {
     // Add your signup logic here
 
     try {
-      const res = await axios.post(
-        "https://evohealth.onrender.com/api/v1/user/register",
-        input
-      );
+      const res = await axios.post("https://evohealth.onrender.com/api/v1/user/register", input);
       alert(res.data.message);
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("username", res.data.name);
@@ -93,7 +87,7 @@ function Login() {
                 name="email"
                 value={logininput.email}
                 onChange={(e) =>
-                    setLogininput({
+                  setLogininput({
                     ...logininput,
                     [e.target.name]: e.target.value,
                   })
@@ -105,7 +99,7 @@ function Login() {
                 name="password"
                 value={logininput.password}
                 onChange={(e) =>
-                    setLogininput({
+                  setLogininput({
                     ...logininput,
                     [e.target.name]: e.target.value,
                   })
@@ -160,16 +154,12 @@ function Login() {
                 }
                 placeholder="Create password"
               />
-              <button
-                type="button"
-                className="btn signup"
-                onClick={handleSignup}
-              >
+              <button type="button" className="btn signup" onClick={handleSignup}>
                 create account
               </button>
               <p>
-                Clicking <strong>create account</strong> means that you agree to
-                our <a href="#">terms of services</a>.
+                Clicking <strong>create account</strong> means that you agree to our{" "}
+                <a href="#">terms of services</a>.
               </p>
               <hr />
             </form>
