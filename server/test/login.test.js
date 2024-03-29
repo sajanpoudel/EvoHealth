@@ -1,0 +1,28 @@
+import { beforeEach, describe, it } from "node:test"
+import assert from "node:assert/strict"
+import bcryptjs from "bcryptjs"
+import jwt from "jsonwebtoken"
+
+import { fakeResponse, mockUserModel } from "./helpers.js"
+
+process.env.JWT_SECRET = "test-secret"
+
+const users = []
+mockUserModel(users)
+const { default: AuthController } = await import("../controllers/authController.js")
+
+beforeEach(() => {
+  users.length = 0
+})
+
+async function register(email, password) {
+  await AuthController.userRegistration({ body: { username: "ada", email, password } }, fakeResponse())
+}
+
+describe("userLogin", () => {
+  it("needs both an email and a password", async () => {
+    const res = fakeResponse()
+    await AuthController.userLogin({ body: { email: "a@b.c" } }, res)
+    assert.equal(res.statusCode, 400)
+  })
+})
