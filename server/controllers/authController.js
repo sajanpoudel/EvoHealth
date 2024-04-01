@@ -25,9 +25,7 @@ class AuthController {
           const savedUser = await newUser.save();
 
           if (savedUser) {
-            return res
-              .status(200)
-              .json({ message: "User Registration successfully" });
+            return res.status(200).json({ message: "User Registration successfully" });
           } else {
             return res.status(400).json({ message: "User Not Registered" });
           }
@@ -35,9 +33,9 @@ class AuthController {
           return res.status(400).json({ message: "EMail already exixst." });
         }
       } else {
-        if(!username) return res.status(400).json({ message: "No username." });
-        if(!email) return res.status(400).json({ message: "No email." });
-        if(!password) return res.status(400).json({ message: "No password." });
+        if (!username) return res.status(400).json({ message: "No username." });
+        if (!email) return res.status(400).json({ message: "No email." });
+        if (!password) return res.status(400).json({ message: "No password." });
       }
     } catch (error) {
       return res.status(400).json({ message: error.message });
@@ -50,10 +48,7 @@ class AuthController {
       if (email && password) {
         const isEmail = await authModel.findOne({ email: email });
         if (isEmail) {
-          if (
-            isEmail.email === email &&
-            (await bcryptjs.compare(password, isEmail.password))
-          ) {
+          if (isEmail.email === email && (await bcryptjs.compare(password, isEmail.password))) {
             // return res.status(200).json({message: "Login Successful"})
 
             //Generate token for protected link access
@@ -73,9 +68,7 @@ class AuthController {
           return res.status(400).json({ message: "Email not registered!" });
         }
       } else {
-        return res
-          .status(400)
-          .json({ message: "Both field are required for login" });
+        return res.status(400).json({ message: "Both field are required for login" });
       }
     } catch (error) {
       return res.status(400).json({ message: error.message });
