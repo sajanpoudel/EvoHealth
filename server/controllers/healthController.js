@@ -35,20 +35,15 @@ class healthController {
             },
           },
           environment: {
-            temperature: parseFloat(
-              (Math.random() * (30 - 20) + 20).toFixed(1)
-            ),
+            temperature: parseFloat((Math.random() * (30 - 20) + 20).toFixed(1)),
             altitude: Math.floor(Math.random() * (1000 - 0 + 1)),
           },
           location: {
             latitude: parseFloat((Math.random() * (90 - -90) + -90).toFixed(6)),
-            longitude: parseFloat(
-              (Math.random() * (180 - -180) + -180).toFixed(6)
-            ),
+            longitude: parseFloat((Math.random() * (180 - -180) + -180).toFixed(6)),
           },
         });
 
-        
         const savedBlog = await addHealth.save();
       } catch (error) {
         return res.status(400).json({ message: error.message });
