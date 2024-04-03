@@ -22,7 +22,7 @@ class hospitalController {
       doctorName,
       doctorPhoneNumber,
       hospitalName,
-      doctorComment
+      doctorComment,
     } = req.body;
     try {
       if (
@@ -43,7 +43,7 @@ class hospitalController {
           hospitalName,
           doctorComment,
           thumbnail: req.file.filename,
-          user: req.user._id
+          user: req.user._id,
         });
 
         const savedData = await addData.save();
