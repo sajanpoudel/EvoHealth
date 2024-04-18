@@ -23,13 +23,16 @@ const router = express.Router();
 router.post("/user/register", AuthController.userRegistration);
 router.post("/user/login", AuthController.userLogin);
 
-
-
 router.get("/get/getdata", checkIsUserAuthenticated, healthController.getAllData);
 
 //Protected Routes
 router.get("/get/alldata", checkIsUserAuthenticated, hospitalController.getAllHospitalData);
-router.post("/add/adddata", upload.single("thumbnail"),  checkIsUserAuthenticated, hospitalController.addHospitalData);
+router.post(
+  "/add/adddata",
+  upload.single("thumbnail"),
+  checkIsUserAuthenticated,
+  hospitalController.addHospitalData
+);
 router.get("/get/data/:id", checkIsUserAuthenticated, hospitalController.getSingleData);
 
 // router.get("/get/profile", checkIsUserAuthenticated, profileController.getProfileData);
