@@ -25,4 +25,10 @@ describe("userLogin", () => {
     await AuthController.userLogin({ body: { email: "a@b.c" } }, res)
     assert.equal(res.statusCode, 400)
   })
+
+  it("tells unknown users to register", async () => {
+    const res = fakeResponse()
+    await AuthController.userLogin({ body: { email: "nobody@x.io", password: "pw" } }, res)
+    assert.equal(res.body.message, "Email not registered!")
+  })
 })
