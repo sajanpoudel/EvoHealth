@@ -31,4 +31,11 @@ describe("userLogin", () => {
     await AuthController.userLogin({ body: { email: "nobody@x.io", password: "pw" } }, res)
     assert.equal(res.body.message, "Email not registered!")
   })
+
+  it("rejects a wrong password", async () => {
+    await register("ada@x.io", "right")
+    const res = fakeResponse()
+    await AuthController.userLogin({ body: { email: "ada@x.io", password: "wrong" } }, res)
+    assert.equal(res.body.message, "Password incorrect")
+  })
 })
