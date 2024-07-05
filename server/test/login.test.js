@@ -38,4 +38,13 @@ describe("userLogin", () => {
     await AuthController.userLogin({ body: { email: "ada@x.io", password: "wrong" } }, res)
     assert.equal(res.body.message, "Password incorrect")
   })
+
+  it("returns a token and the user name", async () => {
+    await register("ada@x.io", "right")
+    const res = fakeResponse()
+    await AuthController.userLogin({ body: { email: "ada@x.io", password: "right" } }, res)
+    assert.equal(res.statusCode, 200)
+    assert.ok(res.body.token)
+    assert.equal(res.body.name, "ada")
+  })
 })
