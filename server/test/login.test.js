@@ -47,4 +47,11 @@ describe("userLogin", () => {
     assert.ok(res.body.token)
     assert.equal(res.body.name, "ada")
   })
+
+  it("signs the token with the user id", async () => {
+    await register("ada@x.io", "right")
+    const res = fakeResponse()
+    await AuthController.userLogin({ body: { email: "ada@x.io", password: "right" } }, res)
+    assert.equal(jwt.verify(res.body.token, "test-secret").userID, users[0]._id)
+  })
 })
