@@ -25,4 +25,10 @@ describe("checkIsUserAuthenticated", () => {
     assert.equal(res.statusCode, 400)
     assert.equal(nextCalled, false)
   })
+
+  it("rejects a token signed with another secret", async () => {
+    const { res, nextCalled } = await run({ authorization: `Bearer ${jwt.sign({ userID: "u1" }, "other")}` })
+    assert.equal(res.body.message, "Unauthorized User")
+    assert.equal(nextCalled, false)
+  })
 })
