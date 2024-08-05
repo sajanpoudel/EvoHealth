@@ -37,4 +37,10 @@ describe("checkIsUserAuthenticated", () => {
     assert.equal(nextCalled, true)
     assert.equal(req.user.email, "ada@x.io")
   })
+
+  it("rejects an expired token", async () => {
+    const token = jwt.sign({ userID: "u1" }, "test-secret", { expiresIn: -10 })
+    const { nextCalled } = await run({ authorization: `Bearer ${token}` })
+    assert.equal(nextCalled, false)
+  })
 })
