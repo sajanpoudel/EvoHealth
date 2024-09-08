@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./login.css"; // Assuming that the CSS is in style.css in the same folder
 import HomeHeader from "../views/components/homeheader";
 import Dashboard from "../DashBoard/dashboard";
-// import useNavigate
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import axios from "axios";
 
